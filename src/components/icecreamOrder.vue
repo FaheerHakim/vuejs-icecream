@@ -70,3 +70,78 @@
 <button class ="btn" @click.prevent="postOrder">Bestelling verzenden</button>
 </div>
 </template>
+
+
+<style scoped>
+
+.order-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 35%;
+    height: 100%;
+    background-color: #FAFAFA;
+    padding: 2rem;
+    border-radius: 50%;
+    border-color: #4E3629;
+    margin: 2rem 0 0 0;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+
+.infoLable {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.inputs {
+    padding: 0.5rem;
+    border-radius: 50%;
+    border: 1px solid #4E3629;
+    outline: none;
+}
+
+.inputPadding {
+    padding: 0.9rem 0.5rem;
+}
+.textereaPadding {
+    padding: 4rem 0.5rem;
+}
+
+.btn {
+    color: #FAFAFA;
+    font-weight: 600;
+    font-family:  'Nunito', sans-serif;
+    font-size: large;
+    background-color: #00A1E4;
+    border-color: #4E3629;
+    border-radius: 50%;
+    padding: 1rem 0;
+    margin: 1rem 0;
+    cursor: pointer;
+}
+input:focus {
+    outline: none;
+    border: 1px solid #4E3629;
+}
+
+/* @media screen and (max-width: 768px) {
+    .order-form {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+} */
+
+
+</style>
