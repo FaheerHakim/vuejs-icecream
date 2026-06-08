@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import IcecreamOrder from'./components/IcecreamOrder.vue'
+import IcecreamOrder from'./components/icecreamOrder.vue'
 </script>
 
 <template>
