@@ -19,7 +19,7 @@ const postOrder = () => {
         coneFlavor: coneFlavor.value,
         iceFlavors: iceFlavors.value,
         quantity: quantity.value,
-        status: phstatusone.value,
+        status: status.value,
         notes: notes.value,
         timestamps: timestamps.value,
 
