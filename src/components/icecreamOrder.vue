@@ -11,6 +11,20 @@ let status = ref('')
 let notes = ref('')
 let timestamps = ref('')
 
+const postOrder = () => {
+    const order = {
+        name: name.value,
+        email: email.value,
+        phone: phone.value,
+        coneFlavor: coneFlavor.value,
+        iceFlavors: iceFlavors.value,
+        quantity: quantity.value,
+        status: phstatusone.value,
+        notes: notes.value,
+        timestamps: timestamps.value,
+
+    }
+}
 
 
 </script>
