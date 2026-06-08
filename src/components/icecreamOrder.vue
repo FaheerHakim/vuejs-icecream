@@ -1,5 +1,18 @@
 <script setup lang="ts">
 import { ref} from 'vue'
+
+let name = ref('')
+let email = ref('')
+let phone = ref('')
+let coneFlavor = ref('')
+let iceFlavors = ref('')
+let quantity = ref('')
+let status = ref('')
+let notes = ref('')
+let timestamps = ref('')
+
+
+
 </script>
 
 <template>
