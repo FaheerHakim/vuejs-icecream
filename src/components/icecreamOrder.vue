@@ -7,9 +7,7 @@ let phone = ref('')
 let coneFlavor = ref('')
 let iceFlavors = ref('')
 let quantity = ref('')
-let status = ref('')
 let notes = ref('')
-let timestamps = ref('')
 
 const postOrder = () => {
     const order = {
@@ -17,11 +15,9 @@ const postOrder = () => {
         email: email.value,
         phone: phone.value,
         coneFlavor: coneFlavor.value,
-        iceFlavors: iceFlavors.value,
-        quantity: quantity.value,
-        status: status.value,
-        notes: notes.value,
-        timestamps: timestamps.value,
+        iceFlavors: [ iceFlavors.value ],
+        quantity: Number(quantity.value),
+        notes: notes.value
 
     }
 
@@ -45,9 +41,7 @@ const postOrder = () => {
          coneFlavor.value = "";
          iceFlavors.value = "";
          quantity.value = "";
-         status.value = "";
          notes.value = "";
-         timestamps.value = "";
 
 
 
