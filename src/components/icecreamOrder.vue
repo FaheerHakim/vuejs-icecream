@@ -24,7 +24,10 @@ const postOrder = () => {
         timestamps: timestamps.value,
 
     }
-}
+
+    console.log(order)
+     const api_url = 'localhost:3000/api/v1/icecream'
+  
 
 
 </script>
