@@ -27,9 +27,22 @@ const postOrder = () => {
 
     console.log(order)
      const api_url = 'localhost:3000/api/v1/icecream'
-  
+         fetch(api_url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
 
+      },
+              body: JSON.stringify(order)
 
+})
+.then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        
+    })
+
+}
 </script>
 
 <template>
