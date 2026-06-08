@@ -26,7 +26,7 @@ const postOrder = () => {
     }
 
     console.log(order)
-     const api_url = 'localhost:3000/api/v1/icecream'
+     const api_url = 'http://localhost:3000/api/v1/icecream'
          fetch(api_url, {
         method: 'POST',
         headers: {
@@ -39,6 +39,16 @@ const postOrder = () => {
 .then(response => response.json())
     .then(data => {
         console.log('Success:', data);
+         name.value = "";
+         email.value = "";
+         phone.value = "";
+         coneFlavor.value = "";
+         iceFlavors.value = "";
+         quantity.value = "";
+         status.value = "";
+         notes.value = "";
+         timestamps.value = "";
+
 
 
         
@@ -51,77 +61,74 @@ const postOrder = () => {
 </script>
 
 <template>
-<div class="order-form">
-<h1>Ben & Jerry's Order Formulier</h1>
-<div class="form">
-<h2>Contact gegevens</h2>
-<div class="infoLable">
+  <div class="order-form">
+    <h1>Ben & Jerry's Order Formulier</h1>
+    
+    <div class="form">
+      <h2>Contact gegevens</h2>
 
-<label class="placeholder" for="name">Naam</label>
-<input class="inputs inputPadding" type="text" id="name" name="name" v-model="name"></div>
+      <div class="infoLable">
+        <label class="placeholder" for="name">Naam</label>
+        <input class="inputs inputPadding" type="text" id="name" name="name" v-model="name">
+      </div>
 
-<div class="infoLable">
-<label class="placeholder" for="name">E-mail</label>
-<input class="inputs inputPadding" type="text" id="email" v-model="email"></div>
+      <div class="infoLable">
+        <label class="placeholder" for="email">E-mail</label>
+        <input class="inputs inputPadding" type="text" id="email" v-model="email">
+      </div>
 
-<div class="infoLable">
-<label class="placeholder" for="name">Gsm nummer</label>
-<input class="inputs inputPadding" type="text" id="phone" name="name" v-model="phone"></div>
+      <div class="infoLable">
+        <label class="placeholder" for="phone">Gsm nummer</label>
+        <input class="inputs inputPadding" type="text" id="phone" name="phone" v-model="phone">
+      </div>
+    </div>
 
-</div>
-<div class="form">
-<h2>Ben & Jerry's Bestelling</h2>
-<div class="infoLable">
-            <label  class="placeholder" for="conFlavor">Hoorntje Smaak</label>
-            <select class ="inputs inputPadding" id="conFlavor" v-model="conFlavor">
-                
-                <option disabled value="">Kies een smaak</option>
-                <option>Chocolade</option>
-                <option>Vanilla</option>
+    <div class="form">
+      <h2>Ben & Jerry's Bestelling</h2>
+      
+      <div class="infoLable">
+        <label class="placeholder" for="coneFlavor">Hoorntje Smaak</label>
+        <select class="inputs inputPadding" id="coneFlavor" v-model="coneFlavor">
+          <option disabled value="">Kies een smaak</option>
+          <option value="Chocolade">Chocolade</option>
+          <option value="Vanilla">Vanilla</option>
+        </select>
+      </div>
 
-            </select>
+      <div class="infoLable">
+        <label class="placeholder" for="iceFlavors">Ijs Smaak</label>
+        <select class="inputs inputPadding" id="iceFlavors" v-model="iceFlavors">
+          <option disabled value="">Kies een smaak</option>
+          <option value="Chocolade">Chocolade</option>
+          <option value="Vanilla">Vanilla</option>
+          <option value="Aardbei">Aardbei</option>
+          <option value="Moka">Moka</option>
+        </select>
+      </div>
 
-        </div>
+      <div class="infoLable">
+        <label class="placeholder" for="quantity">Hoeveelheid</label>
+        <input class="inputs inputPadding" type="text" id="quantity" v-model="quantity">
+      </div>
 
-<div class="infoLable">
-<label class="placeholder" for="iceFlavors">
-<input class ="inputs inputPadding" type="text" id="iceFlavors"  v-model="iceFlavors"> Ijse Smaak</label>
-<select class ="inputs inputPadding" id="conFlavor" v-model="conFlavor">
-                
-                <option disabled value="">Kies een smaak</option>
-                <option>Chocolade</option>
-                <option>Vanilla</option>
-                <option>Aardbei</option>
-                <option>Moka</option>
+      <div class="infoLable">
+        <label class="placeholder" for="status">Status</label>
+        <input class="inputs inputPadding" type="text" id="status" v-model="status">
+      </div>
 
-            </select>
-</div>
+      <div class="infoLable">
+        <label class="placeholder" for="notes">Notitie</label>
+        <textarea class="inputs textereaPadding" id="notes" v-model="notes"></textarea>
+      </div>
 
-<div class="infoLable">
-<label class="placeholder" for="quantity">
-<input class ="inputs inputPadding" type="text" id="quantity"  v-model="quantity">Hoeveelheid</label>
-</div>
+      <div class="infoLable">
+        <label class="placeholder" for="timestamps">Timestamps</label>
+        <input class="inputs inputPadding" type="text" id="timestamps" v-model="timestamps">
+      </div>
+    </div>
 
-<div class="infoLable">
-<label class="placeholder" for="status">
-<input class ="inputs inputPadding" type="text" id="status"  v-model="status">Statuus</label>
-</div>
-
-<div class="infoLable">
-<label class="placeholder" for="notes">
-<textarea class ="inputs textereaPadding" id="note" v-model="notes"></textarea></label>
-</div>
-
-<div class="infoLable">
-<label class="placeholder" for="timestamps">
-<input class ="inputs inputPadding" type="text" id="timestamps"  v-model="timestamps">timestamps</label>
-</div>
-
-</div>
-
-
-<button class ="btn" @click.prevent="postOrder">Bestelling verzenden</button>
-</div>
+    <button class="btn" @click.prevent="postOrder">Bestelling verzenden</button>
+  </div>
 </template>
 
 
