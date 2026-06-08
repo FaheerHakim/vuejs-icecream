@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import icecreamOrder from'./components/icecreamOrder.vue'
+import IcecreamOrder from'./components/IcecreamOrder.vue'
 </script>
 
 <template>
   <div class="app">
   <div class="kolom">
-  <icecreamOrder />
+  <IcecreamOrder />
 
   </div>
   </div>
