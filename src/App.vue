@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import IcecreamOrder from'./components/icecreamOrder.vue'
 </script>
 
