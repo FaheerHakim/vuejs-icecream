@@ -15,8 +15,8 @@ const postOrder = () => {
         email: email.value,
         phone: phone.value,
         coneFlavor: coneFlavor.value,
-        iceFlavors: [ iceFlavors.value ],
-        quantity: Number(quantity.value),
+        iceFlavors: iceFlavors.value,
+        quantity: quantity.value,
         notes: notes.value
 
     }
