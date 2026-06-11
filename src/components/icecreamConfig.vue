@@ -7,11 +7,11 @@ import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
-const model = document.querySelector('.configurator');
+const model = document.querySelector('#configurator');
 
 const renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth/2, window.innerHeight/2);
-model.appendChild( renderer.domElement );
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild( renderer.domElement );
 
 let icecream;
 const gltfLoader = new GLTFLoader();
@@ -26,9 +26,9 @@ camera.position.z = 15;
 
 function animate() {
 
-    renderer.render(scene, camera);
+	renderer.render( scene, camera );
 
 }
 
-animate();
+renderer.setAnimationLoop(animate);
 </script>

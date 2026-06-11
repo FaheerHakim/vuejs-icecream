@@ -1,6 +1,6 @@
 <script setup>
 import IcecreamOrder from'./components/icecreamOrder.vue'
-import IcecreamConfig from'./components/IcecreamConfig.vue'
+import IcecreamConfig from'./components/icecreamConfig.vue'
 </script>
 
 <template>
@@ -10,7 +10,7 @@ import IcecreamConfig from'./components/IcecreamConfig.vue'
 
   </div>
 
-  <div class="kolom configurator" >
+  <div class="kolom">
   <IcecreamConfig />
 
   </div>
