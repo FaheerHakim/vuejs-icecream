@@ -16,18 +16,36 @@ renderer.setClearColor(0x000000, 0);
 
 
 let icecream;
+
 const gltfLoader = new GLTFLoader();
 
 gltfLoader.load('../../models/icecream.glb', (gltf) => {
-    icecream = gltf.scene;
-    console.log(gltf);
-    scene.add(gltf.scene);
+    
+    const mesh = gltf.scene;
+    
+    mesh.scale.set(0.03, 0.03, 0.03);
+
+    const box = new THREE.Box3().setFromObject(mesh);
+
+    const center = box.getCenter(new THREE.Vector3());
+
+    mesh.position.sub(center);
+
+    const group = new THREE.Group();
+
+    group.add(mesh);
+
+    scene.add(group);
+
+    icecream = group;
 });
 
 camera.position.z = 15;
 
 function animate() {
 
+    if (icecream) icecream.rotation.y += 0.01;
+    
 	renderer.render( scene, camera );
 
 }
