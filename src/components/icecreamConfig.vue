@@ -14,6 +14,8 @@ document.body.appendChild( renderer.domElement );
 
 renderer.setClearColor(0x000000, 0);
 
+const light = new THREE.AmbientLight(0xffffff, 1);
+scene.add(light);
 
 let icecream;
 
@@ -45,7 +47,7 @@ camera.position.z = 15;
 function animate() {
 
     if (icecream) icecream.rotation.y += 0.01;
-    
+
 	renderer.render( scene, camera );
 
 }
