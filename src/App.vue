@@ -9,8 +9,8 @@ import IcecreamConfig from'./components/IcecreamConfig.vue'
   <IcecreamOrder />
 
   </div>
-  
-  <div class="kolom">
+
+  <div class="kolom configurator" >
   <IcecreamConfig />
 
   </div>
