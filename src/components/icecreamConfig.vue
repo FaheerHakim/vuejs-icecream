@@ -1,6 +1,6 @@
 <script setup>
 import * as THREE from 'three';
-import { watch } from 'vue'
+import { watch, onMounted, ref } from 'vue'
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
@@ -11,9 +11,14 @@ const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.inner
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth/2, window.innerHeight/2);
-document.body.appendChild( renderer.domElement );
-const controls = new OrbitControls( camera, renderer.domElement );
 
+const controls = new OrbitControls( camera, renderer.domElement );
+const canvasContainer = ref(null)
+
+onMounted(() => {
+    canvasContainer.value.appendChild(renderer.domElement)
+    controls.update()
+})
 
 renderer.setClearColor(0x000000, 0);
 
@@ -62,10 +67,10 @@ controls.update();
 const props = defineProps(['flavor', 'coneFlavor'])
 
 const flavorColors = {
-    'Chocolade': 0x5C3317,
-    'Vanilla':   0xF3E5AB,
-    'Aardbei':   0xFF6B8A,
-    'Moka':      0x3D1C02
+    'Chocolade': 0x5E3B1B,
+    'Vanilla':   0xFFE3B5,
+    'Aardbei':   0xFFADDA,
+    'Moka':      0x38260D
 }
 
 // watch op de prop
@@ -81,8 +86,8 @@ watch(() => props.flavor, (newFlavor) => {
 
 
 const coneflavorColors = {
-    'Chocolade': 0x5C3317,
-    'Vanilla':   0xF3E5AB,
+    'Chocolade': 0x4F351F,
+    'Vanilla':   0xFFDEC2,
 }
 
 // watch op de prop
@@ -108,7 +113,8 @@ function animate() {
 
 renderer.setAnimationLoop(animate);
 
- 
-
-
 </script>
+
+<template>
+    <div ref="canvasContainer" style="margin-top: 20rem;"></div>
+</template>

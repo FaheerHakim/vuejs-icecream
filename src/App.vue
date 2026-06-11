@@ -28,10 +28,9 @@ const selectedConeFlavor = ref('')
 </template>
 
 <style scoped>
-.kolom{
-
-display: grid;
-grid-template-columns: 8fr 4fr;
-
+.app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
 }
 </style>
