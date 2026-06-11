@@ -4,19 +4,24 @@ import IcecreamOrder from'./components/icecreamOrder.vue'
 import IcecreamConfig from'./components/icecreamConfig.vue'
 
 const selectedFlavor = ref('')
+const selectedConeFlavor = ref('')
+
 
 </script>
 
 <template>
   <div class="app">
   <div class="kolom">
-  <IcecreamOrder @flavorChanged="selectedFlavor = $event" />
+  <IcecreamOrder 
+  @flavorChanged="selectedFlavor = $event" 
+  @coneFlavorChanged="selectedConeFlavor = $event" 
+   />
 
 
   </div>
 
   <div class="kolom">
-  <IcecreamConfig :flavor="selectedFlavor" />
+  <IcecreamConfig :flavor="selectedFlavor" :coneFlavor="selectedConeFlavor" />
 
   </div>
   </div>

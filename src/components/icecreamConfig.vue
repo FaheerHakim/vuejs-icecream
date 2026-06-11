@@ -59,7 +59,7 @@ camera.position.z = 15;
 
 controls.update();
 
-const props = defineProps(['flavor'])
+const props = defineProps(['flavor', 'coneFlavor'])
 
 const flavorColors = {
     'Chocolade': 0x5C3317,
@@ -74,6 +74,23 @@ watch(() => props.flavor, (newFlavor) => {
     const color = flavorColors[newFlavor] || 0xffffff
     icecream.traverse((child) => {
         if (child.isMesh && child.name === 'Scoop') {
+            child.material.color.setHex(color)
+        }
+    })
+})
+
+
+const coneflavorColors = {
+    'Chocolade': 0x5C3317,
+    'Vanilla':   0xF3E5AB,
+}
+
+// watch op de prop
+watch(() => props.coneFlavor, (newFlavor) => {
+    if (!icecream) return
+    const color = coneflavorColors[newFlavor] || 0xffffff
+    icecream.traverse((child) => {
+        if (child.isMesh && child.name === 'Cone') {
             child.material.color.setHex(color)
         }
     })

@@ -53,12 +53,16 @@ const postOrder = () => {
 
 }
 
-const emit = defineEmits(['flavorChanged'])
+const emit = defineEmits(['flavorChanged', 'coneFlavorChanged'])
 
 // verander v-model op de select naar @change:
 const onFlavorChange = (e) => {
     iceFlavors.value = e.target.value
     emit('flavorChanged', e.target.value)
+}
+const onConeFlavorChange = (e) => {
+    coneFlavor.value = e.target.value
+    emit('coneFlavorChanged', e.target.value)
 }
 
 
@@ -92,7 +96,7 @@ const onFlavorChange = (e) => {
       
       <div class="infoLable">
         <label class="placeholder" for="coneFlavor">Hoorntje Smaak</label>
-        <select class="inputs inputPadding" id="coneFlavor" v-model="coneFlavor">
+        <select class="inputs inputPadding" id="coneFlavor" v-model="coneFlavor" @change="onConeFlavorChange">
           <option disabled value="">Kies een smaak</option>
           <option value="Chocolade">Chocolade</option>
           <option value="Vanilla">Vanilla</option>
@@ -101,7 +105,7 @@ const onFlavorChange = (e) => {
 
       <div class="infoLable">
         <label class="placeholder" for="iceFlavors">Ijs Smaak</label>
-        <select class="inputs inputPadding" id="iceFlavors" @change="onFlavorChange">
+        <select class="inputs inputPadding" id="iceFlavors" v-model="iceFlavors" @change="onFlavorChange">
           <option disabled value="">Kies een smaak</option>
           <option value="Chocolade">Chocolade</option>
           <option value="Vanilla">Vanilla</option>
