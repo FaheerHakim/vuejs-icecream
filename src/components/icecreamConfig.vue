@@ -12,6 +12,8 @@ const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.inner
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth/2, window.innerHeight/2);
 document.body.appendChild( renderer.domElement );
+const controls = new OrbitControls( camera, renderer.domElement );
+
 
 renderer.setClearColor(0x000000, 0);
 
@@ -52,12 +54,14 @@ gltfLoader.load('../../models/icecream.glb', (gltf) => {
 
 camera.position.z = 15;
 
+controls.update();
+
 function animate() {
 
     if (icecream) icecream.rotation.y += 0.01;
 
 	renderer.render( scene, camera );
-
+    
 }
 
 renderer.setAnimationLoop(animate);
