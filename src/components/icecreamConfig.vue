@@ -48,7 +48,7 @@ gltfLoader.load('../../models/icecream.glb', (gltf) => {
     group.add(mesh);
 
     scene.add(group);
-
+    console.log(group);
     icecream = group;
 });
 
@@ -59,7 +59,7 @@ controls.update();
 function animate() {
 
     if (icecream) icecream.rotation.y += 0.01;
-
+    
 	renderer.render( scene, camera );
     
 }
