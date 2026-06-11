@@ -17,6 +17,14 @@ renderer.setClearColor(0x000000, 0);
 const light = new THREE.AmbientLight(0xffffff, 1);
 scene.add(light);
 
+const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+directionalLight.position.x = 1;
+directionalLight.position.z = 1;
+scene.add(directionalLight);
+
+const directionalLightHelper = new THREE.DirectionalLightHelper(
+directionalLight, 2);
+
 let icecream;
 
 const gltfLoader = new GLTFLoader();
