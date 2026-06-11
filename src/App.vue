@@ -17,4 +17,11 @@ import IcecreamConfig from'./components/icecreamConfig.vue'
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.kolom{
+
+display: grid;
+grid-template-columns: 8fr 4fr;
+
+}
+</style>

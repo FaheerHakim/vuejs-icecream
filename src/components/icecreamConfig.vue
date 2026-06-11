@@ -9,7 +9,7 @@ const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.inner
 
 
 const renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(window.innerWidth/2, window.innerHeight/2);
 document.body.appendChild( renderer.domElement );
 
 renderer.setClearColor(0x000000, 0);
@@ -22,8 +22,7 @@ directionalLight.position.x = 1;
 directionalLight.position.z = 1;
 scene.add(directionalLight);
 
-const directionalLightHelper = new THREE.DirectionalLightHelper(
-directionalLight, 2);
+
 
 let icecream;
 
@@ -33,7 +32,7 @@ gltfLoader.load('../../models/icecream.glb', (gltf) => {
     
     const mesh = gltf.scene;
     
-    mesh.scale.set(0.03, 0.03, 0.03);
+    mesh.scale.set(0.08, 0.08, 0.08);
 
     const box = new THREE.Box3().setFromObject(mesh);
 
