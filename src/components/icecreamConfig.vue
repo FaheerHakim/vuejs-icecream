@@ -1,8 +1,8 @@
 <script setup>
 import * as THREE from 'three';
+import { watch } from 'vue'
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-
 
 
 const scene = new THREE.Scene();
@@ -50,19 +50,48 @@ gltfLoader.load('../../models/icecream.glb', (gltf) => {
     scene.add(group);
     console.log(group);
     icecream = group;
+
+    
 });
+   
 
 camera.position.z = 15;
 
 controls.update();
+
+const props = defineProps(['flavor'])
+
+const flavorColors = {
+    'Chocolade': 0x5C3317,
+    'Vanilla':   0xF3E5AB,
+    'Aardbei':   0xFF6B8A,
+    'Moka':      0x3D1C02
+}
+
+// watch op de prop
+watch(() => props.flavor, (newFlavor) => {
+    if (!icecream) return
+    const color = flavorColors[newFlavor] || 0xffffff
+    icecream.traverse((child) => {
+        if (child.isMesh && child.name === 'Scoop') {
+            child.material.color.setHex(color)
+        }
+    })
+})
+
 
 function animate() {
 
     if (icecream) icecream.rotation.y += 0.01;
     
 	renderer.render( scene, camera );
+
     
 }
 
 renderer.setAnimationLoop(animate);
+
+ 
+
+
 </script>

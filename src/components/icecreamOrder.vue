@@ -52,6 +52,16 @@ const postOrder = () => {
     });
 
 }
+
+const emit = defineEmits(['flavorChanged'])
+
+// verander v-model op de select naar @change:
+const onFlavorChange = (e) => {
+    iceFlavors.value = e.target.value
+    emit('flavorChanged', e.target.value)
+}
+
+
 </script>
 
 <template>
@@ -91,7 +101,7 @@ const postOrder = () => {
 
       <div class="infoLable">
         <label class="placeholder" for="iceFlavors">Ijs Smaak</label>
-        <select class="inputs inputPadding" id="iceFlavors" v-model="iceFlavors">
+        <select class="inputs inputPadding" id="iceFlavors" @change="onFlavorChange">
           <option disabled value="">Kies een smaak</option>
           <option value="Chocolade">Chocolade</option>
           <option value="Vanilla">Vanilla</option>
@@ -105,20 +115,14 @@ const postOrder = () => {
         <input class="inputs inputPadding" type="text" id="quantity" v-model="quantity">
       </div>
 
-      <div class="infoLable">
-        <label class="placeholder" for="status">Status</label>
-        <input class="inputs inputPadding" type="text" id="status" v-model="status">
-      </div>
+   
 
       <div class="infoLable">
         <label class="placeholder" for="notes">Notitie</label>
         <textarea class="inputs textereaPadding" id="notes" v-model="notes"></textarea>
       </div>
 
-      <div class="infoLable">
-        <label class="placeholder" for="timestamps">Timestamps</label>
-        <input class="inputs inputPadding" type="text" id="timestamps" v-model="timestamps">
-      </div>
+
     </div>
 
     <button class="btn" @click.prevent="postOrder">Bestelling verzenden</button>
@@ -139,6 +143,8 @@ const postOrder = () => {
     border-radius: 50px;
     border-color: #4E3629;
     margin: 2rem 0 0 0;
+    font-family: "BenJerry-Chunk", sans-serif;
+
 }
 
 .form{
@@ -174,7 +180,7 @@ const postOrder = () => {
 .btn {
     color: #FAFAFA;
     font-weight: 600;
-    font-family:  'Nunito', sans-serif;
+    font-family:  'ChunkFive', sans-serif;
     font-size: large;
     background-color: #00A1E4;
     border-color: #4E3629;

@@ -1,17 +1,22 @@
 <script setup>
+import { ref } from 'vue'
 import IcecreamOrder from'./components/icecreamOrder.vue'
 import IcecreamConfig from'./components/icecreamConfig.vue'
+
+const selectedFlavor = ref('')
+
 </script>
 
 <template>
   <div class="app">
   <div class="kolom">
-  <IcecreamOrder />
+  <IcecreamOrder @flavorChanged="selectedFlavor = $event" />
+
 
   </div>
 
   <div class="kolom">
-  <IcecreamConfig />
+  <IcecreamConfig :flavor="selectedFlavor" />
 
   </div>
   </div>
