@@ -16,4 +16,10 @@ gltfLoader.load('../../models/icecream.glb', (gltf) => {
     scene.add(gltf.scene);
 });
 
+camera.position.z = 15;
+
+function animate() {
+}
+
+animate();
 </script>
