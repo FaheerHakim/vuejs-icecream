@@ -22,7 +22,7 @@ const postOrder = () => {
     }
 
     console.log(order)
-     const api_url = 'https://icecreamapi-08s6.onrender.com/'
+     const api_url = 'https://icecreamapi-08s6.onrender.com/api/v1/icecream'
          fetch(api_url, {
         method: 'POST',
         headers: {
