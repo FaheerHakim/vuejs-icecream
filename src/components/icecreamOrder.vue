@@ -69,7 +69,7 @@ const onConeFlavorChange = (e) => {
 
 <template>
   <div class="order-form">
-    <h1Faheer</h1>
+    <h1>Faheer</h1>
     
     <div class="form">
       <h2>Contact gegevens</h2>
