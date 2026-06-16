@@ -1,6 +1,6 @@
 <script setup>
 import * as THREE from 'three';
-import { watch, onMounted, ref } from 'vue'
+import { watch, onMounted, ref } from 'vue' //
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
@@ -9,7 +9,7 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
 
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer(); // render is de projector die de 3D beelden daadwerkelijk omzet in pixels op het scherm. 
 renderer.setSize(window.innerWidth/2, window.innerHeight/2);
 
 const controls = new OrbitControls( camera, renderer.domElement );
@@ -26,12 +26,11 @@ const light = new THREE.AmbientLight(0xffffff, 1);
 scene.add(light);
 
 const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-directionalLight.position.x = 1;
+directionalLight.position.x = -5;
 directionalLight.position.z = 1;
 scene.add(directionalLight);
 
-
-
+//
 let icecream;
 
 const gltfLoader = new GLTFLoader();
@@ -60,11 +59,11 @@ gltfLoader.load('../../models/icecream.glb', (gltf) => {
 });
    
 
-camera.position.z = 15;
+camera.position.z = 15;  // z = diepte
 
 controls.update();
 
-const props = defineProps(['flavor', 'coneFlavor'])
+const props = defineProps(['flavor', 'coneFlavor']) // 
 
 const flavorColors = {
     'Chocolade': 0x5E3B1B,
@@ -93,7 +92,7 @@ const coneflavorColors = {
 // watch op de prop
 watch(() => props.coneFlavor, (newFlavor) => {
     if (!icecream) return
-    const color = coneflavorColors[newFlavor] || 0xffffff
+    const color = coneflavorColors[newFlavor] || 0xffffff //
     icecream.traverse((child) => {
         if (child.isMesh && child.name === 'Cone') {
             child.material.color.setHex(color)
@@ -102,9 +101,11 @@ watch(() => props.coneFlavor, (newFlavor) => {
 })
 
 
+
+    if (icecream) icecream.rotation.y += 20.01;
+
 function animate() {
 
-    if (icecream) icecream.rotation.y += 0.01;
     
 	renderer.render( scene, camera );
 

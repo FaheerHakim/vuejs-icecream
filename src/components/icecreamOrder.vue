@@ -1,7 +1,7 @@
 <script setup>
-import { ref} from 'vue'
+import { ref} from 'vue' 
 
-let name = ref('')
+let name = ref('') // ref: voor een string, nummer enzo..
 let email = ref('')
 let phone = ref('')
 let coneFlavor = ref('')
@@ -29,7 +29,7 @@ const postOrder = () => {
             'Content-Type': 'application/json'
 
       },
-              body: JSON.stringify(order)
+              body: JSON.stringify(order) // zonder dit can ik de order variabele niet posten in de api
 
 })
 .then(response => response.json())
@@ -52,10 +52,9 @@ const postOrder = () => {
     });
 
 }
+// defineEmits is de regel die de events klaarzet.
+const emit = defineEmits(['flavorChanged', 'coneFlavorChanged']) // emit = uitzenden
 
-const emit = defineEmits(['flavorChanged', 'coneFlavorChanged'])
-
-// verander v-model op de select naar @change:
 const onFlavorChange = (e) => {
     iceFlavors.value = e.target.value
     emit('flavorChanged', e.target.value)
@@ -70,7 +69,7 @@ const onConeFlavorChange = (e) => {
 
 <template>
   <div class="order-form">
-    <h1>Ben & Jerry's Order Formulier</h1>
+    <h1Faheer</h1>
     
     <div class="form">
       <h2>Contact gegevens</h2>
@@ -92,7 +91,7 @@ const onConeFlavorChange = (e) => {
     </div>
 
     <div class="form">
-      <h2>Ben & Jerry's Bestelling</h2>
+      <h2>test</h2>
       
       <div class="infoLable">
         <label class="placeholder" for="coneFlavor">Hoorntje Smaak</label>

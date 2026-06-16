@@ -21,7 +21,7 @@ const selectedConeFlavor = ref('')
   </div>
 
   <div class="kolom">
-  <IcecreamConfig :flavor="selectedFlavor" :coneFlavor="selectedConeFlavor" />
+  <IcecreamConfig :flavor="selectedFlavor" :coneFlavor="selectedConeFlavor" /> // hier staat de 3D-configurator. Hier stuur ik de opgeslagen smaken juist weer naar binnen toe door moddel van Props (:flavor en :coneFlavor). Hierdoor weet de 3D-scene direct welke smaak wordt aangeklikt.
 
   </div>
   </div>
